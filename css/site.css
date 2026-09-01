@@ -214,6 +214,24 @@ a { color: inherit; }
 
 .tile--wide { grid-column: span 3; }
 
+/* faixa de largura total: texto numa coluna, engenharia e stack na outra */
+.tile--band {
+  grid-column: span 6;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: var(--space-xl);
+  align-items: start;
+  padding: var(--space-xl);
+}
+.tile__main,
+.tile__side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  min-width: 0;
+}
+.tile--band .tile__side { align-self: stretch; }
+
 .tile__title { font-size: var(--text-lg); font-weight: 700; }
 .tile--lead .tile__title { font-size: clamp(var(--text-lg), 1.8vw + 0.7rem, var(--text-2xl)); }
 
@@ -232,7 +250,7 @@ a { color: inherit; }
 
 .tile__spacer { flex: 1 1 auto; }
 
-/* numeros vindos do brief - nenhum inventado */
+/* numeros fornecidos pelo cliente - nenhum inventado */
 .facts {
   display: flex;
   flex-wrap: wrap;
@@ -378,7 +396,8 @@ a { color: inherit; }
 
 @media (max-width: 60rem) {
   .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .tile, .tile--lead, .tile--wide { grid-column: span 2; }
+  .tile, .tile--lead, .tile--wide, .tile--band { grid-column: span 2; }
+  .tile--band { grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); }
   .method { grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); }
 }
 

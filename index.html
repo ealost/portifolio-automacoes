@@ -161,7 +161,7 @@
 
     <section class="section" aria-labelledby="automacoes">
       <div class="section__head">
-        <h2 class="section__title" id="automacoes">Automações em produção</h2>
+        <h2 class="section__title" id="automacoes">Automações de processo</h2>
         <p class="section__sub">
           Fluxos que rodam sozinhos todo dia, com tratamento de exceção e registro para auditoria.
         </p>
@@ -211,43 +211,99 @@
           </ul>
         </article>
 
-        <article class="tile">
-          <h3 class="tile__title">Integração financeira entre RH e ERP</h3>
-          <p class="tile__body">
-            Sincroniza lançamentos entre o sistema de folha e o ERP, processando as respostas
-            XML do webservice, gerando scripts de atualização em massa e reconciliando os
-            lançamentos. Consolidado no data warehouse.
-          </p>
-          <div class="tile__spacer"></div>
-          <ul class="stack">
-            <li>n8n</li><li>SQL Server / ERP</li><li>SOAP</li><li>BigQuery</li><li>Python</li>
-          </ul>
+        <article class="tile tile--wide">
+          <div class="tile__main">
+            <h3 class="tile__title">Integração financeira entre folha e ERP</h3>
+            <p class="tile__body">
+              Não existia integração entre o sistema de folha e o ERP. A cada fechamento,
+              milhares de lançamentos contábeis precisavam ser digitados à mão no
+              financeiro — um volume que consome a janela de fechamento inteira e que
+              não escala com a operação.
+            </p>
+            <p class="tile__body">
+              A dificuldade não é só o volume: a origem não é uma API. Os valores chegam
+              em PDF do sistema de folha, então o tratamento vem antes de qualquer
+              chamada ao ERP — extrair, normalizar, agrupar e montar o lote. Só depois
+              disso o fluxo gera o script de atualização em massa e grava.
+            </p>
+          </div>
+
+          <div class="tile__side">
+            <ul class="eng">
+              <li><b>Tratamento antes da escrita</b> — nada vai para o ERP sem passar pela extração e normalização do PDF de origem.</li>
+              <li><b>Lote, não chamada a chamada</b> — milhares de lançamentos unitários por webservice não fecham dentro da janela.</li>
+              <li><b>Reconciliação pelo retorno SOAP</b> — o XML de resposta é processado e conferido contra o que foi enviado.</li>
+              <li><b>Consolidação no data warehouse</b> — cada fechamento fica registrado para auditoria.</li>
+            </ul>
+            <div class="tile__spacer"></div>
+            <ul class="stack">
+              <li>n8n</li><li>Python</li><li>Extração de PDF</li>
+              <li>SQL Server / ERP</li><li>Webservice SOAP</li><li>BigQuery</li>
+            </ul>
+          </div>
         </article>
 
-        <article class="tile">
-          <h3 class="tile__title">Automação ambiental de MTR e CDF</h3>
-          <p class="tile__body">
-            Pipeline de emissão de manifesto de transporte de resíduos e monitoramento de
-            certificados via API pública federal. Dados em arquitetura medallion, PDFs em
-            storage na nuvem e dashboards de acompanhamento.
-          </p>
-          <div class="tile__spacer"></div>
-          <ul class="stack">
-            <li>n8n</li><li>API pública</li><li>BigQuery</li><li>Cloud Storage</li><li>BI</li>
-          </ul>
+        <article class="tile tile--wide">
+          <div class="tile__main">
+            <h3 class="tile__title">Automação ambiental de MTR e CDF</h3>
+            <p class="tile__body">
+              Cada carga de resíduo exige um manifesto de transporte, e são milhares por mês.
+              Emitir um a um no portal do órgão é trabalho repetitivo com prazo legal em cima.
+              O fluxo emite via API pública federal e acompanha o certificado de destinação
+              final até o processo fechar.
+            </p>
+
+            <ul class="facts">
+              <li><b>milhares</b><span>de manifestos por mês</span></li>
+              <li><b>−80%</b><span>no tempo de emissão</span></li>
+            </ul>
+
+            <ul class="eng">
+              <li><b>Rastreabilidade ponta a ponta</b> — origem, transporte e destinação de cada manifesto ficam registrados e recuperáveis, sem depender de quem guardou qual PDF.</li>
+              <li><b>Gestão do ciclo, não só a emissão</b> — o certificado de destinação é monitorado depois de emitido; o processo só fecha quando ele chega.</li>
+              <li><b>Visibilidade para a área</b> — volume, pendências e prazos em dashboard, em vez de morarem dentro do portal do órgão.</li>
+            </ul>
+
+            <div class="tile__spacer"></div>
+            <ul class="stack">
+              <li>n8n</li><li>API pública</li><li>BigQuery</li>
+              <li>Arquitetura medallion</li><li>Cloud Storage</li><li>BI</li>
+            </ul>
+          </div>
         </article>
 
-        <article class="tile">
-          <h3 class="tile__title">VAN bancária e conciliação</h3>
-          <p class="tile__body">
-            Integração com a API do banco para conciliação financeira: leitura de extrato,
-            filtragem, deduplicação de lançamentos e notificação automática por e-mail.
-            Inclui a reconciliação do retorno CNAB240 contra o ERP.
-          </p>
-          <div class="tile__spacer"></div>
-          <ul class="stack">
-            <li>n8n</li><li>API bancária</li><li>CNAB240</li><li>ERP</li><li>E-mail</li>
-          </ul>
+        <article class="tile tile--band">
+          <div class="tile__main">
+            <h3 class="tile__title">Conciliação bancária: de RPA de tela para integração</h3>
+            <p class="tile__body">
+              A conciliação diária rodava como robô de tela — clicando no internet banking e
+              na interface do ERP, cerca de meia hora por dia, de segunda a sexta. Esse tipo
+              de automação funciona até a primeira mudança de layout da tela, e aí quebra em
+              silêncio.
+            </p>
+            <p class="tile__body">
+              A reconstrução troca o clique por integração de verdade: autenticação OAuth2
+              com certificado mTLS na API do banco para puxar extrato, retorno CNAB240 e
+              tarifas; webservice do ERP para importar o retorno, lançar as tarifas no
+              extrato de caixa e contabilizar. A planilha de correspondência que vivia numa
+              pasta de rede virou base consultável — o financeiro cadastra uma tarifa nova
+              sem ninguém encostar no fluxo.
+            </p>
+          </div>
+
+          <div class="tile__side">
+            <ul class="eng">
+              <li><b>Conferência humana no fim, de propósito</b> — o processo tem divergências de origem interna. O fluxo entrega tudo conciliado e anexado, mas quem assina é uma pessoa: automatizar o julgamento seria automatizar o erro.</li>
+              <li><b>Janela com regra de calendário</b> — D-1 no meio da semana e D-3 na segunda, para nunca pedir movimento de dia sem expediente bancário.</li>
+              <li><b>Matriz de exceção por dependência</b> — banco, ERP, base e e-mail têm cada um sua política de retentativa e o seu destinatário de alerta, em vez de um <i>try/catch</i> genérico.</li>
+              <li><b>Log de execução</b> — data, arquivos usados, retorno do ERP, resultado e anexos gerados.</li>
+            </ul>
+            <div class="tile__spacer"></div>
+            <ul class="stack">
+              <li>n8n</li><li>API bancária</li><li>OAuth2 + mTLS</li>
+              <li>CNAB240</li><li>Webservice / ERP</li><li>E-mail</li>
+            </ul>
+          </div>
         </article>
 
       </div>
