@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Evandro Costa — Engenharia de Automação &amp; Dados</title>
+<meta name="description" content="Automações de ponta a ponta: pipelines de dados, integrações entre sistemas e agentes de IA aplicados a processos reais de negócio. Portfólio de Evandro Costa.">
+<meta name="author" content="Evandro Costa">
+<meta name="theme-color" content="#16181d">
+
+<link rel="canonical" href="https://ealost.github.io/portifolio-automacoes/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Evandro Costa">
+<meta property="og:title" content="Evandro Costa — Engenharia de Automação &amp; Dados">
+<meta property="og:description" content="Pipelines de dados, integrações entre sistemas e agentes de IA aplicados a processos reais de negócio.">
+<meta property="og:url" content="https://ealost.github.io/portifolio-automacoes/">
+<meta property="og:image" content="https://ealost.github.io/portifolio-automacoes/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Evandro Costa — Engenharia de Automação &amp; Dados">
+<meta name="twitter:description" content="Pipelines de dados, integrações entre sistemas e agentes de IA aplicados a processos reais de negócio.">
+<meta name="twitter:image" content="https://ealost.github.io/portifolio-automacoes/assets/og.png">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Geist:wght@350;450;500&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/site.css">
+<script>
+  // o reveal so e armado quando ha JS; um watchdog garante que o conteudo
+  // nunca fique invisivel caso a animacao nao rode ate o fim.
+  document.documentElement.classList.add("js");
+  addEventListener("load", function () {
+    setTimeout(function () {
+      document.documentElement.classList.add("motion-settled");
+    }, 1600);
+  });
+</script>
+</head>
+
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<div class="wrap">
+
+  <header class="nav reveal" style="--i:0">
+    <a class="wordmark" href="#conteudo"><b>Evandro Costa</b><span class="wordmark__tail"> — automação &amp; dados</span></a>
+    <a class="chip" href="mailto:ealost@live.com">Falar comigo</a>
+  </header>
+
+  <main id="conteudo">
+
+    <section class="hero">
+      <p class="hero__role reveal" style="--i:1">engenharia de automação &amp; dados</p>
+
+      <h1 class="hero__name reveal" style="--i:2">Tiro trabalho manual do caminho.</h1>
+
+      <p class="hero__lede reveal" style="--i:3">
+        Desenho e construo automações de ponta a ponta — de pipelines de dados e
+        integrações entre sistemas a agentes de IA aplicados a processos reais de
+        negócio. O objetivo é sempre o mesmo: devolver tempo e confiabilidade
+        para quem opera.
+      </p>
+
+      <p class="hero__note reveal" style="--i:4">
+        Disponível para <strong>CLT</strong> e para <strong>projetos PJ / consultoria</strong>
+        em automação de processos, presencial ou remoto.
+      </p>
+
+      <div class="contacts reveal" style="--i:5">
+        <a class="chip" href="mailto:ealost@live.com">ealost@live.com</a>
+        <a class="chip" href="https://wa.me/5541987048550" rel="noopener"><span class="chip__pre">WhatsApp </span>(41) 98704-8550</a>
+        <a class="chip" href="https://www.linkedin.com/in/evandrvm/" rel="noopener">LinkedIn</a>
+        <a class="chip" href="https://github.com/ealost" rel="noopener">GitHub</a>
+      </div>
+    </section>
+
+    <!-- ————— destaques ————— -->
+
+    <section class="section" aria-labelledby="destaques">
+      <div class="section__head">
+        <h2 class="section__title" id="destaques">Plataformas</h2>
+        <p class="section__sub">
+          Dois produtos internos que construí do zero — arquitetura, backend, agente e deploy.
+        </p>
+      </div>
+
+      <div class="bento">
+
+        <article class="tile tile--lead">
+          <h3 class="tile__title">Portal de análise de editais com IA</h3>
+
+          <p class="tile__body">
+            Plataforma interna que automatiza a leitura de editais de licitação pública.
+            O usuário envia o edital e o termo de referência em PDF e recebe uma análise
+            comercial completa — objeto, valores, prazos, lotes, garantias, qualificação
+            técnica e econômico-financeira, regras de consórcio — junto de um checklist de
+            habilitação categorizado. Antes, isso eram horas de leitura manual.
+          </p>
+
+          <ul class="facts">
+            <li><b>~5 min</b><span>por edital, ponta a ponta</span></li>
+            <li><b>60–150</b><span>páginas por documento</span></li>
+            <li><b>~R$ 3</b><span>de custo por análise</span></li>
+          </ul>
+
+          <ul class="eng">
+            <li><b>RAG hierárquico (PageIndex)</b> para navegar documentos longos sem perder a estrutura do edital.</li>
+            <li><b>Autenticação corporativa</b> via diretório da empresa, com deploy containerizado.</li>
+            <li><b>Rastreio de custo por etapa</b> do pipeline, para saber onde o gasto de inferência acontece.</li>
+          </ul>
+
+          <div class="tile__spacer"></div>
+          <ul class="stack">
+            <li>Python</li><li>FastAPI</li><li>Gemini API</li><li>RAG</li>
+            <li>HTMX</li><li>Tailwind</li><li>SQLite</li><li>Docker</li><li>LDAP</li>
+          </ul>
+        </article>
+
+        <article class="tile tile--lead">
+          <h3 class="tile__title">Assistente corporativo de dados em linguagem natural</h3>
+
+          <p class="tile__body">
+            Diretoria, financeiro e suprimentos dependiam do time de dados para qualquer
+            pergunta do dia a dia — saldo de uma controlada, total comprado por fornecedor,
+            qual o procedimento de abastecimento. Cada dúvida virava um chamado, um dashboard
+            novo ou uma consulta manual. Agora qualquer colaborador autorizado pergunta em
+            português e recebe a resposta direta dos dados oficiais, com o SQL sempre
+            disponível para auditoria.
+          </p>
+
+          <p class="tile__body">
+            Um agente de IA com <i>function calling</i> explora o schema, gera e executa a
+            consulta e responde em linguagem natural — restrito por um catálogo semântico
+            por área e por guardrails de segurança e custo. Reúne, sob o mesmo agente, dados
+            estruturados do data warehouse e documentos internos indexados via RAG.
+          </p>
+
+          <ul class="eng">
+            <li><b>Governança em camadas</b> — por seção, empresa e centro de custo, com os filtros embutidos na consulta e validados nas ferramentas do agente, não só no prompt.</li>
+            <li><b>Guardrails de custo</b> — acesso somente leitura, <i>dry-run</i> com teto de bytes, limite de linhas e escopo de tabelas por categoria.</li>
+            <li><b>Perfil diretoria</b> que cruza áreas: projeção de caixa a partir de saldo, recebíveis e compromissos.</li>
+            <li><b>Observabilidade</b> — consumo de tokens e custo estimado por usuário, com auditoria das conversas.</li>
+          </ul>
+
+          <div class="tile__spacer"></div>
+          <ul class="stack">
+            <li>Python</li><li>FastAPI</li><li>Gemini API</li><li>BigQuery</li>
+            <li>React</li><li>RAG</li><li>Docker</li><li>LDAP</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ————— automações ————— -->
+
+    <section class="section" aria-labelledby="automacoes">
+      <div class="section__head">
+        <h2 class="section__title" id="automacoes">Automações em produção</h2>
+        <p class="section__sub">
+          Fluxos que rodam sozinhos todo dia, com tratamento de exceção e registro para auditoria.
+        </p>
+      </div>
+
+      <div class="bento">
+
+        <article class="tile tile--wide">
+          <h3 class="tile__title">Lançamento automático de notas fiscais no ERP</h3>
+          <p class="tile__body">
+            Elimina a digitação manual de notas de serviço no financeiro. Ao chegar o e-mail
+            com a NF-e, um agente extrai os dados estruturados da mensagem e o fluxo valida
+            cada um contra o ERP: confirma o fornecedor, checa se a nota está em aberto e
+            recupera o centro de custo a partir de pagamentos anteriores.
+          </p>
+          <p class="tile__body">
+            Passando nas validações, o lançamento é gravado direto no ERP via webservice e o
+            remetente recebe a confirmação com valor líquido e previsão de pagamento. Cada
+            exceção — fornecedor não encontrado, nota inexistente, caso de consórcio,
+            identificação pela obra — dispara um e-mail para o responsável certo, em vez de
+            travar o fluxo.
+          </p>
+          <div class="tile__spacer"></div>
+          <ul class="stack">
+            <li>n8n</li><li>IA (extração)</li><li>SQL Server / ERP</li>
+            <li>Webservice SOAP</li><li>BigQuery</li><li>E-mail</li>
+          </ul>
+        </article>
+
+        <article class="tile tile--wide">
+          <h3 class="tile__title">Notificação e indicação de condutor em multas</h3>
+          <p class="tile__body">
+            Dispara com o e-mail da autuação: extrai os dados da infração, cruza o veículo com
+            o cadastro de frota e a escala de uso para identificar quem era o condutor, e
+            registra tudo no data warehouse.
+          </p>
+          <p class="tile__body">
+            Identificado o condutor, gera o documento de indicação para assinatura eletrônica
+            e envia por WhatsApp, com verificação de entrega, novas tentativas em caso de falha
+            e confirmação no canal da equipe. Quando o condutor não é encontrado ou o cadastro
+            está incompleto, o processo é desviado para tratamento manual — não trava.
+          </p>
+          <div class="tile__spacer"></div>
+          <ul class="stack">
+            <li>n8n</li><li>BigQuery</li><li>Assinatura eletrônica</li>
+            <li>WhatsApp (Twilio)</li><li>Slack</li><li>E-mail</li>
+          </ul>
+        </article>
+
+        <article class="tile">
+          <h3 class="tile__title">Integração financeira entre RH e ERP</h3>
+          <p class="tile__body">
+            Sincroniza lançamentos entre o sistema de folha e o ERP, processando as respostas
+            XML do webservice, gerando scripts de atualização em massa e reconciliando os
+            lançamentos. Consolidado no data warehouse.
+          </p>
+          <div class="tile__spacer"></div>
+          <ul class="stack">
+            <li>n8n</li><li>SQL Server / ERP</li><li>SOAP</li><li>BigQuery</li><li>Python</li>
+          </ul>
+        </article>
+
+        <article class="tile">
+          <h3 class="tile__title">Automação ambiental de MTR e CDF</h3>
+          <p class="tile__body">
+            Pipeline de emissão de manifesto de transporte de resíduos e monitoramento de
+            certificados via API pública federal. Dados em arquitetura medallion, PDFs em
+            storage na nuvem e dashboards de acompanhamento.
+          </p>
+          <div class="tile__spacer"></div>
+          <ul class="stack">
+            <li>n8n</li><li>API pública</li><li>BigQuery</li><li>Cloud Storage</li><li>BI</li>
+          </ul>
+        </article>
+
+        <article class="tile">
+          <h3 class="tile__title">VAN bancária e conciliação</h3>
+          <p class="tile__body">
+            Integração com a API do banco para conciliação financeira: leitura de extrato,
+            filtragem, deduplicação de lançamentos e notificação automática por e-mail.
+            Inclui a reconciliação do retorno CNAB240 contra o ERP.
+          </p>
+          <div class="tile__spacer"></div>
+          <ul class="stack">
+            <li>n8n</li><li>API bancária</li><li>CNAB240</li><li>ERP</li><li>E-mail</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ————— método ————— -->
+
+    <section class="section section--tight" aria-labelledby="metodo">
+      <div class="section__head">
+        <h2 class="section__title" id="metodo">Como eu construo</h2>
+        <p class="section__sub">
+          O que se repete em todos os projetos acima, independente da stack.
+        </p>
+      </div>
+
+      <div class="method">
+        <div class="method__list">
+          <div>
+            <h3>Automação que não trava</h3>
+            <p>
+              Todo fluxo tem caminho de exceção nomeado e destinatário definido. Quando o dado
+              não bate, o processo desvia para quem sabe resolver — nunca fica parado em
+              silêncio esperando alguém notar.
+            </p>
+          </div>
+          <div>
+            <h3>Regra na consulta, não no prompt</h3>
+            <p>
+              Permissão, escopo e limite de custo são validados no código e nas ferramentas do
+              agente. Um modelo de linguagem é bom em entender a pergunta; ele não é o lugar
+              onde a regra de acesso mora.
+            </p>
+          </div>
+          <div>
+            <h3>Tudo registrado</h3>
+            <p>
+              Cada execução grava seu rastro no data warehouse — entrada, decisão, resultado,
+              custo. Isso é o que permite auditar, medir e confiar no que rodou sem ninguém
+              olhando.
+            </p>
+          </div>
+          <div>
+            <h3>Camada semântica antes do dashboard</h3>
+            <p>
+              Modelagem em camadas e um catálogo por área, para que a métrica tenha uma
+              definição só. Painel bonito em cima de dado ambíguo apenas espalha a discussão.
+            </p>
+          </div>
+        </div>
+
+        <dl class="toolbox">
+          <div>
+            <dt>Backend e IA</dt>
+            <dd>Python, FastAPI, LLMs com function calling, RAG, orquestração de agentes, Docker.</dd>
+          </div>
+          <div>
+            <dt>Dados</dt>
+            <dd>BigQuery, SQL Server, arquitetura medallion, modelagem analítica, Cloud Storage, BI.</dd>
+          </div>
+          <div>
+            <dt>Integração</dt>
+            <dd>n8n, webservices SOAP e REST, CNAB240, APIs bancárias e públicas, e-mail, WhatsApp, Slack.</dd>
+          </div>
+          <div>
+            <dt>Entorno</dt>
+            <dd>Autenticação corporativa, controle de acesso por área, versionamento e deploy em contêiner.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <p class="foot__line">
+      Se é repetitivo e tem regra, <span>dá para automatizar.</span>
+    </p>
+    <div class="foot__meta">
+      <nav class="foot__links" aria-label="Contato">
+        <a href="mailto:ealost@live.com">ealost@live.com</a>
+        <a href="https://wa.me/5541987048550" rel="noopener">(41) 98704-8550</a>
+        <a href="https://www.linkedin.com/in/evandrvm/" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/ealost" rel="noopener">GitHub</a>
+      </nav>
+      <span>Evandro Costa — automação &amp; dados</span>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
