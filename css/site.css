@@ -184,6 +184,56 @@ a { color: inherit; }
 .section__title { font-size: var(--text-xl); font-weight: 700; }
 .section__sub { font-size: var(--text-base); color: var(--color-neutral); }
 
+/* --------------------------------- perfil --------------------------------- */
+/* tipografica de proposito: a grade de tiles domina o resto da pagina, e tres
+   cards iguais aqui seriam o clichê que o resto do layout evita */
+
+.profile {
+  display: grid;
+  gap: var(--space-lg);
+  padding-block: var(--space-2xl) var(--space-3xl);
+  border-block-start: var(--rule-hair) solid var(--color-rule);
+}
+
+.profile__claim {
+  font-size: var(--text-display-s);
+  font-weight: 700;
+  max-width: 20ch;
+}
+
+.profile__lede {
+  max-width: 58ch;
+  font-size: var(--text-md);
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+
+/* colunas deliberadamente desiguais — tres colunas iguais e o tell */
+.profile__roles {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) minmax(0, 0.85fr);
+  gap: var(--space-xl);
+  padding-block-start: var(--space-lg);
+}
+
+.role { display: grid; gap: var(--space-xs); align-content: start; min-width: 0; }
+.role h3 {
+  font-size: var(--text-base);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  padding-block-start: var(--space-sm);
+  border-block-start: 2px solid var(--color-accent-dim);
+}
+.role p { font-size: var(--text-base); color: var(--color-neutral); }
+.role em { font-style: normal; color: var(--color-ink); font-weight: 500; }
+
+.profile__close {
+  max-width: 64ch;
+  font-size: var(--text-base);
+  color: var(--color-muted);
+  padding-block-start: var(--space-md);
+}
+
 /* --------------------------------- bento ---------------------------------- */
 
 .bento {
@@ -406,6 +456,7 @@ a { color: inherit; }
   .tile, .tile--lead, .tile--wide, .tile--band { grid-column: span 2; }
   .tile--band { grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); }
   .method { grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); }
+  .profile__roles { grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); }
 }
 
 @media (max-width: 34rem) {
